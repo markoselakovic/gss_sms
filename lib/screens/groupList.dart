@@ -1,30 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gss_sms/screens/gssList.dart';
-import 'package:gss_sms/models/group.dart';
-import 'package:gss_sms/widgets/groupListItemWidget.dart';
+
+import 'groupListState.dart';
 
 class GroupList extends GssList {
 
-  GroupList({Key key, this.groups}) : super(key: key, title: "GSS Obavestenja - grupe");
-
-  final List<Group> groups;
-  @override
-  List getListItems() {
-    return groups;
-  }
+  GroupList({Key key}) : super(key: key, title: "GSS Obavestenja - grupe");
 
   @override
-  Widget getListItemWidget(int index) {
-    return GroupListItemWidget(groups[index]);
-  }
+  GroupListState createState() => GroupListState();
 
-  @override
-  int getListLength() {
-    return groups.length;
-  }
-
-  @override
-  String getTitle() {
-    return "Sve grupe";
-  }
 }

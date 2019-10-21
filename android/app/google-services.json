@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "242797943891",
+    "firebase_url": "https://gss-obavestenja.firebaseio.com",
+    "project_id": "gss-obavestenja",
+    "storage_bucket": "gss-obavestenja.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242797943891:android:c9f4e7e9e903ea53d7faa6",
+        "android_client_info": {
+          "package_name": "rs.gss.gss_sms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242797943891-676aee67h0o7huk3cr96olbdcbs00hhu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rs.gss.gss_sms",
+            "certificate_hash": "c6ff60093dcceb5cdeae5eec956cdaba1f2b9de3"
+          }
+        },
+        {
+          "client_id": "242797943891-fsge5d5rtmigbv19itfi8mufncl5b5b2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4C_iz1MvWOn35YsIu03FjNcRigpRupps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242797943891-fsge5d5rtmigbv19itfi8mufncl5b5b2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,32 +1,13 @@
 import 'package:flutter/material.dart';
-import 'dart:developer';
-import 'screens/rescuerList.dart';
-import 'package:gss_sms/models/rescuer.dart';
-import 'package:gss_sms/models/group.dart';
-import 'screens/groupList.dart';
-import 'package:gss_sms/screens/sendMessage.dart';
+import 'package:gss_sms/screens/homeScreen.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  Rescuer rescuer = Rescuer("1", "792", "Marko", "Selakovic", "Selak", "063619775", "Belgrade");
-  Rescuer rescuer2 = Rescuer("2", "792", "Petar", "Selakovic", "Pera", "063619775", "Belgrade");
-
-
 
   @override
   Widget build(BuildContext context) {
-    final List<String> list =  new List();
-    list.add("1");
-    list.add("2");
-
-    Group group = new Group("1", "Stanica Beograd", list);
-    List<Group> groups = new List();
-    groups.add(group);
-    List<Rescuer> rescuers = List<Rescuer>();
-    rescuers.add(rescuer);
-    rescuers.add(rescuer2);
     return MaterialApp(
       title: 'GSS',
       theme: ThemeData(
@@ -41,9 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-//      home: RescuerList(rescuers: rescuers),
-//      home: GroupList(groups: groups),
-      home: SendMessage(),
+      home: HomeScreen(),
     );
   }
 }
