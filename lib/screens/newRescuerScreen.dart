@@ -142,6 +142,13 @@ class _NewRescuerState extends State<NewRescuerScreen> {
   }
 
   _saveRescuer(BuildContext context) {
+    try {
+      int.parse(_rescuer.gssId.trim());
+    } catch (e) {
+      Scaffold.of(context)
+          .showSnackBar(SnackBar(content: Text('GSS ID nije validan broj')));
+      return;
+    }
     final rescuersReference = FirebaseDatabase.instance.reference();
     if (_rescuer.id == null){
       rescuersReference.child("rescuers").push().set(_rescuer.toJson()).then((_) {

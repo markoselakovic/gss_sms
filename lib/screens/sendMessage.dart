@@ -129,13 +129,13 @@ class _SendMessageState extends State {
 
   Widget _getGroupsCheckBoxList() {
     List<CheckboxListTile> children =
-    List.generate(_enabledGroups.length, (index) {
+    List.generate(_groups.length, (index) {
       return CheckboxListTile(
-        title: Text(_enabledGroups.keys.elementAt(index).name),
-        value: _enabledGroups.values.elementAt(index),
+        title: Text(_groups.elementAt(index).name),
+        value: _enabledGroups[_groups.elementAt(index)],
         onChanged: (bool val) {
           setState(() {
-            _enabledGroups[_enabledGroups.keys.elementAt(index)] = val;
+            _enabledGroups[_groups.elementAt(index)] = val;
           });
         },
       );

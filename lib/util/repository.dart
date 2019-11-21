@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:gss_sms/models/rescuer.dart';
 import 'package:gss_sms/models/group.dart';
+import 'package:gss_sms/screens/newGroup.dart';
 
 class Repository {
   static final Repository _instance = Repository._internal();
@@ -31,7 +32,6 @@ class Repository {
 
   void fetchRescuers() async {
     List<Rescuer> rescuers = new List();
-//    Completer<List<Rescuer>> completer = new Completer<List<Rescuer>>();
     await _rescuersReference.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> map = snapshot.value;
       for (int i = 0; i<map.length; i++) {
@@ -39,7 +39,6 @@ class Repository {
         Map values = map.values.elementAt(i);
         rescuers.add(Rescuer.fromMap(key, values));
       }
-//      completer.complete(rescuers);
     });
     _updateRescuers(rescuers);
   }
@@ -78,6 +77,7 @@ class Repository {
   }
 
   List<Rescuer> getRescuers() {
+    _rescuers.sort((a, b) => int.parse(a.gssId).compareTo(int.parse(b.gssId)));
     return _rescuers;
   }
 
@@ -86,6 +86,7 @@ class Repository {
   }
 
   List<Group> getGroups() {
+    _groups.sort((a, b) => getPriorityRank(a.priority).compareTo(getPriorityRank(b.priority)));
     return _groups;
   }
 
@@ -103,4 +104,13 @@ class Repository {
     _groups.removeWhere((group) => group.id == event.snapshot.key);
     _groupsStreamController.add(_groups);
   }
+
+ int getPriorityRank(String priority) {
+    switch (priority) {
+      case NIZAK: return 3;
+      case SREDNJI: return 2;
+      case VISOK: return 1;
+    }
+    return 3;
+ }
 }
