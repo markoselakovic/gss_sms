@@ -8,10 +8,6 @@ import 'gssList.dart';
 
 abstract class GssListState extends State<GssList> {
 
-  void logg() {
-    log("asd");
-  }
-
   String getTitle();
   int getListLength();
   Widget getListItemWidget(int index);

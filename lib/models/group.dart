@@ -7,10 +7,9 @@ class Group {
   String id;
   String name;
   List<String> rescuersIds;
+  String priority;
 
-  Group(this.id, this.name, this.rescuersIds);
-
-  Group.withName(this.name) {
+  Group(this.name, this.priority) {
     rescuersIds = new List();
   }
 
@@ -28,7 +27,7 @@ class Group {
       });
     }
     name = snapshot.value["name"];
-
+    priority = snapshot.value["priority"];
   }
 
   Group.fromMap(String key, Map map) {
@@ -40,13 +39,15 @@ class Group {
         rescuersIds.add(val.toString());
       });
     }
+    priority = map["priority"];
     name = map["name"];
   }
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'name': name,
-      'rescuerIds': rescuersIds
+      'rescuerIds': rescuersIds,
+      'priority' : priority
     };
   }
 }

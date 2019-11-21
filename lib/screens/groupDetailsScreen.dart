@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gss_sms/models/group.dart';
 import 'package:gss_sms/models/rescuer.dart';
+import 'package:gss_sms/screens/newRescuerScreen.dart';
 import 'package:gss_sms/util/repository.dart';
 import 'package:gss_sms/widgets/rescuerListItemWidget.dart';
 
@@ -62,7 +63,15 @@ class GroupDetailsScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {fabAction(context);},
+          tooltip: 'Increment',
+          child: Icon(Icons.add),
+        ),
     );
   }
 
+  void fabAction(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NewRescuerScreen()));
+  }
 }
